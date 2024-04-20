@@ -1,4 +1,8 @@
-def square(a):
-    return round(pow(a, a))
+from math import ceil
 
-print(square(3.1))
+
+def square(a):
+    return ceil(pow(a, a))
+
+
+print(square(1.1))

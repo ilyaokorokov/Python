@@ -8,14 +8,12 @@ def month_to_season(month):
         else:
             print("Осень")
 
+
 month_to_season(9)
 
 
-
-
-
-
 data = int(input("Введите месяц: "))
+
 
 def mont_season(data):
     if data < 1 or data > 12:
@@ -29,5 +27,6 @@ def mont_season(data):
             print("Лето")
         else:
             print("Осень")
+
 
 mont_season(data)

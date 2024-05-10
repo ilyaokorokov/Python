@@ -1,0 +1,5 @@
+Локатор кнопки Войти - $("div.h1ca")
+Локатор кнопки Заказы - $("[data-widget='orderInfo']")
+Локатор ссылки OZON Job (в футере) - $("a[href='https://job.ozon.ru/?perehod=footer']")
+Локатор выбора валюты (верхний левый угол страницы) - $("button[data-widget='selectedCurrency']")
+Локатор выпадашки Везде (в поисковой строке) - $("div.yy5")

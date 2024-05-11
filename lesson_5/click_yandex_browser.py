@@ -23,7 +23,7 @@ driver.maximize_window()
 
 driver.get("https://the-internet.herokuapp.com/add_remove_elements/")
 
-button = "button[onclick='addElement()']"
+button = "/html/body/div[2]/div/div/button"
 
 click_button = driver.find_element(By.CSS_SELECTOR, button)
 

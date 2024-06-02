@@ -20,7 +20,9 @@ class Calculator:
         input_delay.send_keys(delay)
 
     def get_buttons(self):
-        self.buttons = self._driver.find_elements(By.CSS_SELECTOR, ".btn.btn-outline-primary")
+        self.buttons = self._driver.find_elements(
+            By.CSS_SELECTOR, ".btn.btn-outline-primary"
+        )
         self.operators = self._driver.find_elements(By.CSS_SELECTOR, ".operator")
         self.equal = self._driver.find_element(
             By.CSS_SELECTOR, ".btn.btn-outline-warning"
@@ -59,8 +61,4 @@ class Calculator:
                 (By.CSS_SELECTOR, "div.screen"), str(total)
             )
         )
-        print(self.screen_result.text)
-        if self.screen_result.text == str(total):
-            print("Задача выполнена, ОР совпадает с ФР")
-        else:
-            print("Где-то ошибка")
+        return self.screen_result.text

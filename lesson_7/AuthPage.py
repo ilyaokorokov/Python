@@ -73,8 +73,12 @@ class Auth:
         self.company_new = self._driver.find_element(By.CSS_SELECTOR, "#company")
 
     def get_result(self):
-        success_class = "alert-success"
-        danger_class = "alert-danger"
+        success_results = []
+        danger_results = []
+
+        WebDriverWait(self._driver, 20).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, "div.alert-success"))
+        )
         fields = [
             self.first_name_new,
             self.last_name_new,
@@ -88,14 +92,13 @@ class Auth:
         ]
 
         for element in fields:
-            WebDriverWait(self._driver, 20).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, "div.alert-success"))
-            )
             result = element.get_attribute("class")
-            assert success_class in result
+            success_results.append(result)
 
         WebDriverWait(self._driver, 20).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, "div.alert-danger"))
         )
         danger_element = self.zip_code_new.get_attribute("class")
-        assert danger_class in danger_element
+        danger_results.append(danger_element)
+
+        return success_results, danger_results

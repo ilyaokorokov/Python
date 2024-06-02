@@ -1,7 +1,4 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from time import sleep
 
 
 class OnlineShop:
@@ -59,8 +56,4 @@ class OnlineShop:
         total = self._driver.find_element(
             By.CSS_SELECTOR, "div.summary_total_label"
         ).text
-        print(total)
-        if total == "Total: $58.29":
-            print("Задача выполнена")
-        else:
-            print("Где-то ошибка")
+        return total

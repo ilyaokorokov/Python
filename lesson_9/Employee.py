@@ -23,12 +23,12 @@ class Employee:
         last_name,
         company_id,
         email,
-        id_num=0,
-        middle_name="",
-        url="",
-        phone="",
-        birthdate="1995-09-03",
-        isActive="",
+        id_num,
+        middle_name,
+        url,
+        phone,
+        birthdate,
+        isActive,
     ):
         employee_info = {
             "id": id_num,

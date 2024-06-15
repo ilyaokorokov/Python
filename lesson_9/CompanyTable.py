@@ -22,7 +22,7 @@ class CompanyTable:
         "get_employee_by_id": text('select * from employee where "id" = :id_employee'),
         "edit_employee_info": text(
             "UPDATE employee SET first_name = :first_name_employee, last_name = :last_name_employee, email = :email_employee, phone = :phone_employee, company_id = :id_company WHERE id = :id_employee"
-        )
+        ),
     }
 
     def __init__(self, connection_string):
@@ -39,10 +39,10 @@ class CompanyTable:
     def get_active_companies(self):
         return self.__db.execute(self.__scripts["select_only_active"]).fetchall()
 
-    def delete(self, id):
+    def delete_company(self, id):
         self.__db.execute(self.__scripts["delete_by_id"], id_to_delete=id)
 
-    def create(self, name, descr=""):
+    def create_company(self, name, descr=""):
         self.__db.execute(
             self.__scripts["insert_new"], {"new_name": name, "description": descr}
         )

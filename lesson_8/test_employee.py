@@ -21,7 +21,9 @@ def test_get_employee_list(company_id):
     result_employee_list, status_code = employee.get_employee_list(id_company)
     assert status_code == 200
     assert len(result_employee_list) == 0
-    result_add_employee, status_code_employee = employee.add_new_employee("Илья", "Окороков", id_company, "ilyaok_krd@mail.ru")
+    result_add_employee, status_code_employee = employee.add_new_employee(
+        "Илья", "Окороков", id_company, "ilyaok_krd@mail.ru"
+    )
     assert status_code_employee == 201
     id_employee = result_add_employee["id"]
     result_employee_list_update, _ = employee.get_employee_list(id_company)
@@ -51,11 +53,15 @@ def test_add_new_employee_negative(company_id):
 
 def test_get_employee_by_id(company_id):
     id_company = company_id
-    result_add_employee, status_code_employee = employee.add_new_employee("Илья", "Окороков", id_company, "ilyaok_krd@mail.ru")
+    result_add_employee, status_code_employee = employee.add_new_employee(
+        "Илья", "Окороков", id_company, "ilyaok_krd@mail.ru"
+    )
     assert status_code_employee == 201
     id_employee = result_add_employee["id"]
 
-    result_get_employee, status_code_get_employee = employee.get_employee_by_id(id_employee)
+    result_get_employee, status_code_get_employee = employee.get_employee_by_id(
+        id_employee
+    )
     assert status_code_get_employee == 200
     assert result_get_employee["id"] == id_employee
     assert result_get_employee["firstName"] == "Илья"
@@ -68,7 +74,8 @@ def test_get_employee_by_id(company_id):
 def test_change_employee_info(company_id):
     id_company = company_id
     result_add_employee, status_code_employee = employee.add_new_employee(
-        "Екатерина", "Катамаранова", id_company, "katkat@ka.ka")
+        "Екатерина", "Катамаранова", id_company, "katkat@ka.ka"
+    )
     assert status_code_employee == 201
     id_employee = result_add_employee["id"]
     print(result_add_employee)
@@ -81,7 +88,9 @@ def test_change_employee_info(company_id):
     assert result_change_employee_info["email"] == "kashakatka@kas.ka"
     assert result_change_employee_info["url"] == ""
 
-    result_get_employee, status_code_get_employee = employee.get_employee_by_id(id_employee)
+    result_get_employee, status_code_get_employee = employee.get_employee_by_id(
+        id_employee
+    )
     print(result_get_employee)
     print(status_code_get_employee)
     assert status_code_get_employee == 200
@@ -91,14 +100,15 @@ def test_change_employee_info(company_id):
 def test_change_employee_info_negative(company_id):
     id_company = company_id
     result_add_employee, status_code_employee = employee.add_new_employee(
-        "Мрак", "Карловиц", id_company, "carlovick@ka.ka")
+        "Мрак", "Карловиц", id_company, "carlovick@ka.ka"
+    )
     assert status_code_employee == 201
     id_employee = result_add_employee["id"]
 
     result_change_employee_info_negative, change_employee_status_code_negative = (
-        employee.edit_employee_info(id_employee, "Каштанова", "kashakatka@kas.ka")
+        employee.edit_employee_info(id_employee, "", "str")
     )
-    assert change_employee_status_code_negative == 404
+    assert change_employee_status_code_negative == 400
     assert result_change_employee_info_negative["message"] == [
         "lastName should not be empty",
         "email must be an email",

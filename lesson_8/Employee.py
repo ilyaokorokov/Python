@@ -23,22 +23,23 @@ class Employee:
         last_name,
         company_id,
         email,
-        id_num=0,
-        middle_name="",
-        url="",
-        phone="",
-        birthdate="1995-09-03",
-        isActive="",
+        # id_num,
+        middle_name,
+        url,
+        phone,
+        # birthdate,
+        isActive,
     ):
         employee_info = {
-            "id": id_num,
+            # "id": id_num,
             "firstName": first_name,
             "lastName": last_name,
+            "middleName": middle_name,
             "companyId": company_id,
             "email": email,
             "url": url,
             "phone": phone,
-            "birthdate": birthdate,
+            # "birthdate": birthdate,
             "isActive": isActive,
         }
         my_token = {}
@@ -48,7 +49,7 @@ class Employee:
         )
         return result_add_employee.json(), result_add_employee.status_code
 
-    def edit_employee_info(self, id, last_name, email, url="", phone="", isActive=""):
+    def edit_employee_info(self, id, last_name, email, url, phone, isActive):
         employee_new_info = {
             "lastName": last_name,
             "email": email,

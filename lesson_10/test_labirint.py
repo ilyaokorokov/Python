@@ -5,17 +5,19 @@ from LabirintCartPage import CartPage
 import allure
 import pytest
 
+
 @pytest.fixture
 def driver():
     driver = webdriver.Chrome()
     yield driver
     driver.quit()
 
-@pytest.fixture
+
 def main_page(driver):
     main_page = MainPage(driver)
     main_page.set_cookie_policy()
     return main_page
+
 
 @allure.feature("Лабиринт")
 class TestLabirint:

@@ -12,7 +12,7 @@ class Employee:
 
     @allure.step("Получить список сотрудников компании через АПИ")
     def get_employee_list(self, company_id: int) -> Tuple[list, int]:
-        """Получить полный список сотрудников компании
+        """Получить полный список сотрудников компании.
 
         Args:
             company_id (int): id номер компании
@@ -27,7 +27,7 @@ class Employee:
 
     @allure.step("Получить информацию о сотруднике компании через АПИ")
     def get_employee_by_id(self, id: int) -> Tuple[dict, int]:
-        """Получить информацию о сотруднике по его ID.
+        """Получить информацию о сотруднике по его ID номеру.
 
         Args:
             id (int): id номер сотрудника
@@ -52,7 +52,7 @@ class Employee:
         birthdate: str,
         isActive: bool,
     ) -> Tuple[dict, int]:
-        """Добавление нового сотрудника в компанию
+        """Позволяет добавить нового сотрудника в компанию.
 
         Args:
             first_name (str): имя
@@ -91,7 +91,7 @@ class Employee:
     def edit_employee_info(
         self, id: int, last_name: str, email: str, url: str, phone: str, isActive: bool
     ) -> Tuple[dict, int]:
-        """_summary_
+        """Позволяет изменить информацию о сотруднике.
 
         Args:
             id (int): id номер сотрудника

@@ -2,8 +2,7 @@ from selenium import webdriver
 from AuthPage import Auth
 import allure
 
-# @allure.epic("Форма отправки данных")
-# @allure.story("ИСТОРИЯ")
+
 @allure.feature("Форма отправки данных")
 @allure.title("Тест на заполнение формы")
 @allure.description(

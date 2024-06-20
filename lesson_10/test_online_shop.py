@@ -2,9 +2,12 @@ from selenium import webdriver
 from OnlineShopPage import OnlineShop
 import allure
 
+
 @allure.feature("Онлайн магазин")
 @allure.title("Тест на соответствие цены")
-@allure.description("Добавляем в корзину необходимые товары, проверяем итоговую стоимость товаров при оформлении заказа")
+@allure.description(
+    "Добавляем в корзину необходимые товары, проверяем итоговую стоимость товаров при оформлении заказа"
+)
 @allure.severity("Critical")
 def test_online_shop():
     driver = webdriver.Chrome()

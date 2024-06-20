@@ -33,7 +33,7 @@ class CompanyTable:
     @allure.step("База данных. Получить список компаний.")
     def get_companies(self) -> list:
         """
-        Получение списка компаний через базу данных
+        Получение списка компаний через отправку запроса в базу данных.
 
         Returns:
             list: Список компаний
@@ -46,7 +46,8 @@ class CompanyTable:
 
     @allure.step("База данных. Получить компанию по id номеру - {id}")
     def get_company_by_id(self, id: int) -> list:
-        """Получить информацию о компании по её id номеру
+        """Получение информации о компании по её id номеру
+        через отправку запроса в базу данных.
 
         Args:
             id (int): id номер компании
@@ -62,7 +63,7 @@ class CompanyTable:
 
     @allure.step("База данных. Получить список активных компаний.")
     def get_active_companies(self) -> list:
-        """Получить список активных компаний.
+        """Получить список активных компаний через отправку запроса в базу данных.
 
         Returns:
             list: Список активных компаний
@@ -75,7 +76,7 @@ class CompanyTable:
 
     @allure.step("База данных. Удалить компанию по её id номеру - {id}")
     def delete_company(self, id: int):
-        """Удалить компанию по её id номеру.
+        """Удалить компанию по её id номеру через отправку запроса в базу данных.
 
         Args:
             id (int): id номер компании
@@ -84,7 +85,7 @@ class CompanyTable:
 
     @allure.step("База данных. Создать компанию: название - {name}, описание - {descr}")
     def create_company(self, name: str, descr: str):
-        """Создать новую компанию
+        """Создать новую компанию через отправку запроса в базу данных.
 
         Args:
             name (str): название компании
@@ -97,6 +98,7 @@ class CompanyTable:
     @allure.step("База данных. Получить максимальный id номер")
     def get_max_id(self) -> int:
         """Получить id номер последней созданной компании
+        через отправку запроса в базу данных.
 
         Returns:
             int: id номер последней созданной компании
@@ -109,7 +111,7 @@ class CompanyTable:
     def create_employee(
         self, first_name: str, last_name: str, email: str, company_id: int, phone: str
     ) -> list:
-        """Добавить сотрудника в компанию
+        """Добавить сотрудника в компанию через отправку запроса в базу данных.
 
         Args:
             first_name (str): имя
@@ -119,7 +121,7 @@ class CompanyTable:
             phone (str): номер телефона
 
         Returns:
-            list: список с сотрудником
+            list: список сотрудников
         """
         return self.__db.execute(
             self.__scripts["create_employee"],
@@ -133,6 +135,7 @@ class CompanyTable:
     @allure.step("База данных. Получить список сотрудников по id номеру компании.")
     def get_employee(self, company_id: int) -> list:
         """Получить список сотрудников по id номеру компании
+        через отправку запроса в базу данных.
 
         Args:
             company_id (int): id номер компании
@@ -147,6 +150,7 @@ class CompanyTable:
     @allure.step("База данных. Удалить сотрудника по его id номеру.")
     def delete_employee(self, id: int):
         """Удалить сотрудника по его id номеру
+        через отправку запроса в базу данных.
 
         Args:
             id (int): id номер сотрудника
@@ -156,6 +160,7 @@ class CompanyTable:
     @allure.step("База данных. Получить информацию о сотруднике по его id номеру")
     def get_employee_by_id(self, employee_id: int) -> list:
         """Получить информацию о сотруднике по его id номеру
+        через отправку запроса в базу данных
 
         Args:
             employee_id (int): id номер сотрудника
@@ -177,7 +182,7 @@ class CompanyTable:
         company_id: int,
         employee_id: int,
     ) -> list:
-        """_summary_
+        """Изменить информацию о сотруднике через отправку запроса в базу данных.
 
         Args:
             first_name (str): имя

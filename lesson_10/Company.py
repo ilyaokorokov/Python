@@ -10,7 +10,7 @@ class Company:
 
     @allure.step("Получить список компаний через АПИ")
     def get_company_list(self) -> list:
-        """_summary_
+        """Метод позволяет получить список компаний
 
         Returns:
             list: список компаний
@@ -80,7 +80,7 @@ class Company:
             id (int): id номер компании
 
         Returns:
-            dict: словарь с информацией о компании
+            dict: словарь с информацией об удаленной компании
         """
         my_token = {}
         my_token["x-client-token"] = self.auth.auth_user()
@@ -89,7 +89,7 @@ class Company:
         )
         return result_delete_company.json()
 
-    @allure.step("Активация компании через АПИ")
+    @allure.step("Активация/деактивация компании через АПИ")
     def set_active_state(self, id: int, isActive: bool) -> dict:
         """Активация/деактивация компании
 
